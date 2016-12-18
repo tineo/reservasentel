@@ -3,10 +3,22 @@
 
 
 //OPENSHIFT
-if( getenv('OPENSHIFT_MYSQL_DB_HOST') != ""){
+if( getenv('OPENSHIFT_MYSQL_DB_HOST') != "") {
     //echo getenv('OPENSHIFT_MYSQL_DB_HOST');
-    $cn = (mysql_connect ( getenv('OPENSHIFT_MYSQL_DB_HOST').":".getenv('OPENSHIFT_MYSQL_DB_PORT'),  getenv('OPENSHIFT_MYSQL_DB_USERNAME'), getenv('OPENSHIFT_MYSQL_DB_PASSWORD') )) or die ( mysql_error() );
-    mysql_select_db ( "reserva", $cn ) or die ( mysql_error() );
+    $cn = (mysql_connect(getenv('OPENSHIFT_MYSQL_DB_HOST') . ":" . getenv('OPENSHIFT_MYSQL_DB_PORT'), getenv('OPENSHIFT_MYSQL_DB_USERNAME'), getenv('OPENSHIFT_MYSQL_DB_PASSWORD'))) or die (mysql_error());
+    mysql_select_db("reserva", $cn) or die (mysql_error());
+
+}else if( getenv("CLEARDB_DATABASE_URL") != "" ){
+        $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+        $server = $url["host"];
+        $username = $url["user"];
+        $password = $url["pass"];
+        $db = substr($url["path"], 1);
+
+        $cn = (mysql_connect ( $server,  $username, $password )) or die ( mysql_error() );
+        mysql_select_db ( $db , $cn ) or die ( mysql_error() );
+
 }else {
 
 //Desarrollo 
