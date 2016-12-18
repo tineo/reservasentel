@@ -1,6 +1,11 @@
 <?
 session_start();
-if(!session_is_registered("idusuario")){
+/* Fix  PHP 5.5+ */
+/*if(!session_is_registered("idusuario")){
+	header("location: index.php");
+}*/
+
+if(!isset($_SESSION['idusuario'])){
 	header("location: index.php");
 }
 
