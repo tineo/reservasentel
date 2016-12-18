@@ -1,0 +1,6 @@
+[02-Aug-2012 15:35:02] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'root'@'localhost' (using password: YES) in /home/revasnx/public_html/migra/migra.php on line 9
+[02-Aug-2012 15:35:46] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'root'@'localhost' (using password: YES) in /home/revasnx/public_html/migra/migra.php on line 9
+[09-Jun-2014 08:44:18] PHP Parse error:  syntax error, unexpected T_ECHO in /home/revasnx/public_html/migra/depura.php on line 35
+[09-Jun-2014 08:44:30] PHP Parse error:  syntax error, unexpected T_ECHO in /home/revasnx/public_html/migra/depura.php on line 35
+[19-Nov-2014 02:56:25] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'revasnx_users'@'localhost' (using password: YES) in /home/revasen/public_html/migra/migra.php on line 9
+[19-Nov-2014 02:58:15] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'revasnx_users'@'localhost' (using password: YES) in /home/revasen/public_html/migra/migra.php on line 9

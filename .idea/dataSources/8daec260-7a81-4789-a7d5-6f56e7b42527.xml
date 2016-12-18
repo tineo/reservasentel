@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - revasen_salas@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="revasen_salas">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema"/>
+    <schema id="3" name="mysql"/>
+    <schema id="4" name="performance_schema"/>
+    <table id="5" parent="1" name="complementos"/>
+    <table id="6" parent="1" name="config_horas_dias"/>
+    <table id="7" parent="1" name="config_recurrentes"/>
+    <table id="8" parent="1" name="config_reserva_semana"/>
+    <table id="9" parent="1" name="config_varios"/>
+    <table id="10" parent="1" name="eventos"/>
+    <table id="11" parent="1" name="fechas_especiales"/>
+    <table id="12" parent="1" name="reservas"/>
+    <table id="13" parent="1" name="reservas_complementos"/>
+    <table id="14" parent="1" name="reservas_especiales"/>
+    <table id="15" parent="1" name="reservasant"/>
+    <table id="16" parent="1" name="salas"/>
+    <table id="17" parent="1" name="salas_bloqueadas"/>
+    <table id="18" parent="1" name="salas_complementos"/>
+    <table id="19" parent="1" name="salas_eliminadas"/>
+    <table id="20" parent="1" name="salas_eventos"/>
+    <table id="21" parent="1" name="seg_menu"/>
+    <table id="22" parent="1" name="seg_menu_usuarios"/>
+    <table id="23" parent="1" name="seg_usuarios"/>
+    <table id="24" parent="1" name="seg_usuarios_matriz"/>
+    <table id="25" parent="1" name="ubicaciones"/>
+    <table id="26" parent="1" name="salas_especiales"/>
+    <table id="27" parent="1" name="reservas_motivos"/>
+    <routine id="28" parent="1" name="toggle_salas_especiales">
+      <routine-kind>PROCEDURE</routine-kind>
+    </routine>
+    <routine id="29" parent="1" name="proc_reservas_especiales">
+      <routine-kind>PROCEDURE</routine-kind>
+    </routine>
+    <column id="30" parent="5" name="idcomplemento">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="31" parent="5" name="nombre">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="32" parent="5" name="buscador">
+      <mandatory>1</mandatory>
+      <data-type>int(1)|0</data-type>
+    </column>
+    <column id="33" parent="5" name="orden">
+      <mandatory>1</mandatory>
+      <data-type>int(1)|0</data-type>
+    </column>
+    <column id="34" parent="5" name="leyenda">
+      <mandatory>1</mandatory>
+      <data-type>char(1)|0</data-type>
+    </column>
+    <key id="35" parent="5" name="PRIMARY">
+      <columns>idcomplemento</columns>
+      <primary>1</primary>
+    </key>
+    <column id="36" parent="6" name="idhoradia">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="37" parent="6" name="hora">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="38" parent="6" name="definicion">
+      <mandatory>1</mandatory>
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <column id="39" parent="6" name="activo">
+      <mandatory>1</mandatory>
+      <data-type>int(1)|0</data-type>
+    </column>
+    <key id="40" parent="6" name="PRIMARY">
+      <columns>idhoradia
+hora</columns>
+      <primary>1</primary>
+    </key>
+    <column id="41" parent="7" name="idrecurrente">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="42" parent="7" name="mes">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+    </column>
+    <column id="43" parent="7" name="dia">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+    </column>
+    <column id="44" parent="7" name="definicion">
+      <mandatory>1</mandatory>
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <column id="45" parent="7" name="activo">
+      <mandatory>1</mandatory>
+      <data-type>int(1)|0</data-type>
+    </column>
+    <key id="46" parent="7" name="PRIMARY">
+      <columns>idrecurrente
+mes
+dia</columns>
+      <primary>1</primary>
+    </key>
+    <column id="47" parent="8" name="semana">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="48" parent="8" name="horas_semana">
+      <data-type>int(3)|0</data-type>
+    </column>
+    <column id="49" parent="8" name="horas_reserva">
+      <comment>Cuantas horas como maximo por cada reserva</comment>
+      <data-type>varchar(5)|0</data-type>
+    </column>
+    <column id="50" parent="8" name="estado">
+      <comment>0=deshabilitado
+1=habilitado</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(1)|0</data-type>
+    </column>
+    <column id="51" parent="9" name="cant_meses">
+      <comment>El usuario puede ver en el calendario de reservas el mes en adelante</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="52" parent="9" name="email_horas_antes">
+      <mandatory>1</mandatory>
+      <data-type>varchar(5)|0</data-type>
+    </column>
+    <column id="53" parent="10" name="idevento">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="54" parent="10" name="nombre">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <key id="55" parent="10" name="PRIMARY">
+      <columns>idevento</columns>
+      <primary>1</primary>
+    </key>
+    <column id="56" parent="11" name="fecha">
+      <mandatory>1</mandatory>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="57" parent="12" name="idreserva">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="58" parent="12" name="idubicacion">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="59" parent="12" name="idsala">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="60" parent="12" name="idevento">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="61" parent="12" name="idusuario">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="62" parent="12" name="codigo">
+      <mandatory>1</mandatory>
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="63" parent="12" name="fecha_reserva">
+      <mandatory>1</mandatory>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="64" parent="12" name="horario_inicio">
+      <mandatory>1</mandatory>
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="65" parent="12" name="horario_final">
+      <mandatory>1</mandatory>
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="66" parent="12" name="asistentes">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="67" parent="12" name="estado">
+      <mandatory>1</mandatory>
+      <data-type>char(1)|0</data-type>
+    </column>
+    <column id="68" parent="12" name="fecha_registro">
+      <mandatory>1</mandatory>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="69" parent="12" name="reserva_especial">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="70" parent="12" name="idespecial">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="71" parent="12" name="idadmin">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="72" parent="12" name="fix_1">
+      <columns>idsala
+horario_final</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="73" parent="12" name="PRIMARY">
+      <columns>idreserva</columns>
+      <primary>1</primary>
+    </key>
+    <column id="74" parent="13" name="idreserva">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="75" parent="13" name="idcomplemento">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="76" parent="13" name="idusuario">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="77" parent="14" name="idespecial">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="78" parent="14" name="idusuario">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="79" parent="14" name="fec_inicio">
+      <mandatory>1</mandatory>
+      <data-type>date|0</data-type>
+    </column>
+    <column id="80" parent="14" name="fec_final">
+      <mandatory>1</mandatory>
+      <data-type>date|0</data-type>
+    </column>
+    <column id="81" parent="14" name="cantidad">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="82" parent="14" name="idadmin">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="83" parent="14" name="reservados">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <key id="84" parent="14" name="PRIMARY">
+      <columns>idespecial</columns>
+      <primary>1</primary>
+    </key>
+    <column id="85" parent="15" name="idreserva">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="86" parent="15" name="idubicacion">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="87" parent="15" name="idsala">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="88" parent="15" name="idevento">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="89" parent="15" name="idusuario">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="90" parent="15" name="codigo">
+      <mandatory>1</mandatory>
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="91" parent="15" name="fecha_reserva">
+      <mandatory>1</mandatory>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="92" parent="15" name="horario_inicio">
+      <mandatory>1</mandatory>
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="93" parent="15" name="horario_final">
+      <mandatory>1</mandatory>
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="94" parent="15" name="asistentes">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="95" parent="15" name="estado">
+      <mandatory>1</mandatory>
+      <data-type>char(1)|0</data-type>
+    </column>
+    <column id="96" parent="15" name="fecha_registro">
+      <mandatory>1</mandatory>
+      <data-type>datetime|0</data-type>
+    </column>
+    <column id="97" parent="15" name="reserva_especial">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="98" parent="15" name="idespecial">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="99" parent="15" name="idadmin">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <key id="100" parent="15" name="PRIMARY">
+      <columns>idreserva</columns>
+      <primary>1</primary>
+    </key>
+    <column id="101" parent="16" name="idsala">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="102" parent="16" name="idubicacion">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="103" parent="16" name="nombre">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="104" parent="16" name="piso">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+    </column>
+    <column id="105" parent="16" name="capacidad">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="106" parent="16" name="caracteristicas">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="107" parent="16" name="imagen">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <key id="108" parent="16" name="PRIMARY">
+      <columns>idsala
+idubicacion</columns>
+      <primary>1</primary>
+    </key>
+    <column id="109" parent="17" name="idsala">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="110" parent="17" name="idubicacion">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="111" parent="17" name="nombre">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="112" parent="17" name="piso">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+    </column>
+    <column id="113" parent="17" name="capacidad">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="114" parent="17" name="caracteristicas">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="115" parent="17" name="imagen">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="116" parent="18" name="idubicacion">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="117" parent="18" name="idsala">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="118" parent="18" name="idcomplemento">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="119" parent="19" name="idsala">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="120" parent="19" name="idubicacion">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="121" parent="19" name="nombre">
+      <mandatory>1</mandatory>
+      <data-type>varchar(110)|0</data-type>
+    </column>
+    <column id="122" parent="19" name="piso">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+    </column>
+    <column id="123" parent="19" name="capacidad">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="124" parent="19" name="caracteristicas">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="125" parent="19" name="imagen">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <key id="126" parent="19" name="PRIMARY">
+      <columns>idsala</columns>
+      <primary>1</primary>
+    </key>
+    <column id="127" parent="20" name="idubicacion">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="128" parent="20" name="idsala">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="129" parent="20" name="idevento">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="130" parent="21" name="idmenu">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="131" parent="21" name="definicion">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="132" parent="21" name="pagina">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="133" parent="21" name="orden">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <key id="134" parent="21" name="PRIMARY">
+      <columns>idmenu</columns>
+      <primary>1</primary>
+    </key>
+    <column id="135" parent="22" name="idusuario">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="136" parent="22" name="idmenu">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <key id="137" parent="22" name="PRIMARY">
+      <columns>idusuario
+idmenu</columns>
+      <primary>1</primary>
+    </key>
+    <column id="138" parent="23" name="idusuario">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="139" parent="23" name="codigo">
+      <mandatory>1</mandatory>
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="140" parent="23" name="nombres_apellidos">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="141" parent="23" name="email">
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="142" parent="23" name="telefonos">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="143" parent="23" name="tipo">
+      <comment>Tipo de usuario:
+A=Adminitrador
+S=Supervior o Empleado</comment>
+      <mandatory>1</mandatory>
+      <data-type>char(1)|0</data-type>
+    </column>
+    <column id="144" parent="23" name="acceso">
+      <mandatory>1</mandatory>
+      <data-type>int(1)|0</data-type>
+    </column>
+    <key id="145" parent="23" name="PRIMARY">
+      <columns>idusuario</columns>
+      <primary>1</primary>
+    </key>
+    <column id="146" parent="24" name="codigo">
+      <mandatory>1</mandatory>
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="147" parent="24" name="ape_pat">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="148" parent="24" name="ape_mat">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="149" parent="24" name="nombre">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="150" parent="24" name="login">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="151" parent="24" name="cell">
+      <mandatory>1</mandatory>
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="152" parent="24" name="mail">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="153" parent="24" name="est">
+      <mandatory>1</mandatory>
+      <data-type>int(1)|0</data-type>
+    </column>
+    <column id="154" parent="25" name="idubicacion">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="155" parent="25" name="nombre">
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="156" parent="25" name="horario_inicio">
+      <mandatory>1</mandatory>
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="157" parent="25" name="horario_final">
+      <mandatory>1</mandatory>
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="158" parent="25" name="caracteristicas">
+      <data-type>text|0</data-type>
+    </column>
+    <key id="159" parent="25" name="PRIMARY">
+      <columns>idubicacion</columns>
+      <primary>1</primary>
+    </key>
+    <column id="160" parent="26" name="idespecial">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="161" parent="26" name="idsala">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="162" parent="26" name="estado">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <key id="163" parent="26" name="PRIMARY">
+      <columns>idespecial</columns>
+      <primary>1</primary>
+    </key>
+    <column id="164" parent="27" name="idmotivo">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="165" parent="27" name="descipcion">
+      <data-type>varchar(254)|0</data-type>
+    </column>
+    <column id="166" parent="27" name="idsala">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="167" parent="27" name="idreserva">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <key id="168" parent="27" name="PRIMARY">
+      <columns>idmotivo</columns>
+      <primary>1</primary>
+    </key>
+    <argument id="169" parent="28" name="in_idsala">
+      <direction>IN</direction>
+      <data-type>int(11)|0</data-type>
+    </argument>
+    <argument id="170" parent="28" name="in_flag">
+      <direction>IN</direction>
+      <data-type>int(1)|0</data-type>
+    </argument>
+    <argument id="171" parent="29" name="in_motivo">
+      <direction>IN</direction>
+      <data-type>varchar(254)|0</data-type>
+    </argument>
+    <argument id="172" parent="29" name="in_idsala">
+      <direction>IN</direction>
+      <data-type>int(11)|0</data-type>
+    </argument>
+    <argument id="173" parent="29" name="in_reserva">
+      <direction>IN</direction>
+      <data-type>int(11)|0</data-type>
+    </argument>
+  </database-model>
+</dataSource>

@@ -1,0 +1,7 @@
+CREATE TABLE reservas_motivos
+(
+    idmotivo INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    descipcion TEXT,
+    idsala INT(11),
+    idreserva INT(11)
+);
