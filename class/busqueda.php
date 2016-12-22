@@ -535,7 +535,7 @@ class Busquedas{
 		$Html='<select class="gris" id="ddlSala"><option value="">-----------</option>';
 		while($Campo=mysql_fetch_array($Result)){
 			if($this->isEspecial($Campo['idsala'])){
-				$Html .= '<option class="option-especial" value="' . $Campo['idsala'] . '">' . $Utilitario->convertir_utf8($Campo['nombre'])." (E)" . '</option>';
+				$Html .= '<option class="option-especial" value="' . $Campo['idsala'] . '">' . $Utilitario->convertir_utf8($Campo['nombre'])." (Solo Videoconferencia)" . '</option>';
 			}else{
 				$Html .= '<option  value="' . $Campo['idsala'] . '">' . $Utilitario->convertir_utf8($Campo['nombre']) . '</option>';
 			}

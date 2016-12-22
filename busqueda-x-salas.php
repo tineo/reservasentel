@@ -292,14 +292,14 @@ function ComboSalas(id){
             //console.log(me.hasClass("option-especial"));
 
             if(me.hasClass("option-especial")){
-                $("body").append("<div class='alert-modal'>Esta sala es especial &iquest;Desea aun realizar la reserva?</div>");
+                $("body").append("<div class='alert-modal'>Esta sala debe ser reservada solo para videoconferencias.</div>");
 
                 $(".alert-modal").dialog({
                     modal: true,
                     title: 'Sala especial',
                     resizable: false,
                     buttons: {
-                        Ok: function() {
+                        Aceptar: function() {
                             $( this ).dialog( "close" );
                         }
                     }
@@ -433,9 +433,9 @@ function NoAsignar(){
     <!-- Tineo -->
     <td>
       <div class='modal-especial' >
-        <p>Esta sala es especial &iquest;Desea aun realizar la reserva?</p>
+        <p>Por favor indica el motivo de tu reunión con videoconferencia.</p>
         <div>
-          <button onclick="$(this).closeOverlay();">OK</button>
+          <button onclick="$(this).closeOverlay();">Aceptar</button>
         </div>
       </div>
       <div id="ConteDetalle"></div>

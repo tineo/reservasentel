@@ -463,9 +463,9 @@ function NoAsignar(){
                 <!-- Tineo -->
             	<td>
                     <div class='modal-especial' >
-                        <p>Esta sala es especial &iquest;Desea aun realizar la reserva?</p>
+                        <p>Por favor indica el motivo de tu reunión con videoconferencia.</p>
                         <div>
-                            <button onclick="$(this).closeOverlay();">OK</button>
+                            <button onclick="$(this).closeOverlay();">Aceptar</button>
                         </div>
                     </div>
                     <div id="ConteDetalle"></div>
