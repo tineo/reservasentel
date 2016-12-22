@@ -96,7 +96,7 @@ class GridPaginador{
 		
 		//Mostar el contenido
 		$retorno = $this->Tabla . $Contenido;
-		//Si el resultado es menor o igual al número de paginación; no mostrar el pie del desplazamiento		 
+		//Si el resultado es menor o igual al nï¿½mero de paginaciï¿½n; no mostrar el pie del desplazamiento		 
 		if ($this->NroRegistros <= $this->RegistrosAMostrar){
 			//return $retorno."</table>"; $this->PaginadoHtmlExtra
 			if(!empty($this->BtnNomEliminar) || !empty($this->PaginadoHtmlExtra)){
@@ -127,19 +127,19 @@ class GridPaginador{
 			}
 		}
 		
-    	//******--------determinar las páginas---------******//		
+    	//******--------determinar las pï¿½ginas---------******//		
 		$PagAnt=$this->PagActual-1;
 		$PagSig=$this->PagActual+1;
 		$PagUlt=$this->NroRegistros/$this->RegistrosAMostrar;
 		
-		//verificamos residuo para ver si llevará decimales
+		//verificamos residuo para ver si llevarï¿½ decimales
 		$Res=$this->NroRegistros%$this->RegistrosAMostrar;
 		// si hay residuo usamos funcion floor para que me
 		// devuelva la parte entera, SIN REDONDEAR, y le sumamos
 		// una unidad para obtener la ultima pagina
 		if($Res>0) $PagUlt=floor($PagUlt)+1;
 		
-		//Traducción del paginado 
+		//Traducciï¿½n del paginado 
 		$Primero;$Anterior;$Siguiente;$Ultimo;$De;$Pagina;$Registros;
 		if($Idioma=='es'){
 			$Primero='Primero';
@@ -161,7 +161,7 @@ class GridPaginador{
 		
 		//desplazamiento para la paginacion
 		$retorno .= "<tr>";
-		$retorno.="  <td colspan='".$this->columnas."' >";
+		$retorno.="  <td colspan='".($this->columnas +1 )."' >";
 		$retorno.="	  <table class='Paginado' border='0'>";		
 		$retorno.="   <tr>";
 		$retorno.="     <td>";

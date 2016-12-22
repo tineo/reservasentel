@@ -111,6 +111,14 @@ class Salas{
 		}
 		return substr($Marcas,1);
 	}
+
+	//Tineo
+	function isEspecial($idsala){
+		$sql = sprintf("SELECT idsala FROM salas_especiales WHERE idsala = %s", $idsala);
+		$results = mysql_query($sql);
+		$count = mysql_num_rows($results);
+		return ($count>0)?true:false;
+	}
 	
 	function GetList($pagina,$campo,$orden,$UbicacionFiltro){
 		global $Utilitario;
@@ -154,6 +162,7 @@ class Salas{
 					<th width="250px" height="27"><a href="javascript:;" onclick="OrdenarGrid(\'nombre\',\''.$OrdenNombre.'\')" >Nombre de la sala</a>'.$ImagenNombre.'</th>
 					<th width="105px"><a href="javascript:;" onclick="OrdenarGrid(\'piso\',\''.$OrdenPiso.'\')" >Piso</a>'.$ImagenPiso.'</th>
 					<th width="105px"><a href="javascript:;" onclick="OrdenarGrid(\'capacidad\',\''.$OrdenCapacidad.'\')" >Capacidad</a>'.$ImagenCapacidad.'</th>
+					<th width="105px">Especial</th>
 					<th width="164px" colspan="2" style="text-align:center;">Acci&oacute;n</th>
 				  </tr>';		
 		while($ArrFila=mysql_fetch_array($Resultado)){
@@ -167,6 +176,7 @@ class Salas{
 			$Rows .= ' <td >'.htmlentities($ArrFila["nombre"]).'</td>';
 			$Rows .= ' <td>'.$ArrFila["piso"].'</td>';
 			$Rows .= ' <td>'.$ArrFila["capacidad"].'</td>';
+			$Rows .= ' <td> '.($this->isEspecial($ArrFila['idsala'])?'Si':'No').'</td>';
 			$Rows .= ' <td align="center"><input name="button" type="button" class="FRM" value=" Editar " onclick="Editar('.$ArrFila["idsala"].');" /></td>';
 			$Rows .= ' <td align="center"><input name="button" type="button" class="FRM" value=" Eliminar " onclick="Eliminar('.$ArrFila["idsala"].');" '.$DisabledEliminar.' /></td>';
 			$Rows .= '</tr>';
