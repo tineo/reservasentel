@@ -441,6 +441,7 @@ class Busquedas{
 		}
 
 		mysql_query($sql);
+		$rid = mysql_insert_id();
 
 		if(!empty($_POST["motivo_especial"])){
 			$last =  mysql_insert_id();
@@ -460,6 +461,12 @@ class Busquedas{
 		$procedure = sprintf("CALL proc_reservas_especiales (%s, %s, %s)",
 			"intento esp", 3, 4);
 		mysql_query($procedure);
+
+		//FIX TRIGGER CLEARDB
+		$trigger = "INSERT INTO reservas_notificaciones (idreserva, hash, state, notify)
+    					VALUES ($rid, MD5(CONCAT($rid,'1')), 0, 0)";
+		mysql_query($trigger);
+
 		echo '{"Validar": "' . 'OK' . '"}';
 	}
 	
@@ -481,6 +488,7 @@ class Busquedas{
 				 $_POST['HoraInicio'],$_POST['HoraFinal'],$_POST['asistentes']);
 		}
 		mysql_query($sql);
+		$rid = mysql_insert_id();
 
 		if(!empty($_POST["motivo_especial"])){
 			$last =  mysql_insert_id();
@@ -489,9 +497,9 @@ class Busquedas{
 			mysql_query($procedure);
 
 
-			include_once  '../includes/EnvioCorreo.php';
-			$er = new EnvioEmail();
-			$er->Enviar("it","Prueba","Email de prueba de envio");
+			//include_once  '../includes/EnvioCorreo.php';
+			//$er = new EnvioEmail();
+			//$er->Enviar("it","Prueba","Email de prueba de envio");
 
 		}
 
@@ -499,6 +507,11 @@ class Busquedas{
 		if(!empty($_POST["FechaBuscador"])){
 			$this->BusquedaPorSala($_POST["FechaBuscador"],$_POST["idsalaCurrent"],false);
 		}
+
+		//FIX TRIGGER CLEARDB
+		$trigger = "INSERT INTO reservas_notificaciones (idreserva, hash, state, notify)
+    					VALUES ($rid, MD5(CONCAT($rid,'1')), 0, 0)";
+		mysql_query($trigger);
 
 		
 	}	
