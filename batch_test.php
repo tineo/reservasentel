@@ -45,8 +45,8 @@ while($fields=mysql_fetch_array($results0)){
         $max_notify,
         $num_notify);
     //echo "<br/>";
-    //echo $sql1;
-    //echo "<br/>";
+    echo $sql1;
+    echo "<br/>";
 
     $results1 = mysql_query($sql1);
 
@@ -100,7 +100,8 @@ while($fields=mysql_fetch_array($results)){
         $fields['lapse_in_min'] - 2,
         $max_notify,
         $num_notify);
-    //echo $sql;
+    echo $sql;
+    echo "<br/>";
 
     //$sql = "SELECT * FROM notificaciones WHERE state = 0  AND notify <= %s ";
 
