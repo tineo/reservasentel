@@ -43,7 +43,7 @@ while($fields=mysql_fetch_array($results0)){
         $fields['lapse_in_min'] - 2,
         $fields['lapse_in_min'] + 2,
         $max_notify,
-        $num_notify);
+        $num_notify -1 );
     //echo "<br/>";
     echo $sql1;
     echo "<br/>";
@@ -99,7 +99,7 @@ while($fields=mysql_fetch_array($results)){
         $fields['lapse_in_min'] + 2,
         $fields['lapse_in_min'] - 2,
         $max_notify,
-        $num_notify);
+        $num_notify - 1 );
     echo $sql;
     echo "<br/>";
 
