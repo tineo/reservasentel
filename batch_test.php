@@ -96,8 +96,8 @@ while($fields=mysql_fetch_array($results)){
 
     //$sql = sprintf("SELECT idsala FROM salas_especiales WHERE idsala = %s", $idsala);
     $sql = sprintf("SELECT * FROM notificaciones WHERE (diff_min BETWEEN %s AND %s) AND state = 0  AND notify <= %s AND notify = %d ",
-        $fields['lapse_in_min'] + 2,
-        $fields['lapse_in_min'] - 2,
+        ($fields['lapse_in_min']*-1) - 2,
+        ($fields['lapse_in_min']*-1) + 2,
         $max_notify,
         $num_notify - 1 );
     echo $sql;
