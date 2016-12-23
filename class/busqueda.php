@@ -450,9 +450,9 @@ class Busquedas{
 
 
 
-			include_once  '../includes/EnvioCorreo.php';
-			$er = new EnvioEmail();
-			$er->Enviar("it","Prueba","Email de prueba de envio");
+			//include_once  '../includes/EnvioCorreo.php';
+			//$er = new EnvioEmail();
+			//$er->Enviar("it","Prueba","Email de prueba de envio");
 
 
 		}

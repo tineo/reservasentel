@@ -28,9 +28,11 @@ if( getenv('OPENSHIFT_MYSQL_DB_HOST') != "") {
     */
 
 //Produccion
-    $cn = (mysql_connect("Localhost", "revasen_users", "==D6?+BxgIZ2")) or die (mysql_error());
-    mysql_select_db("revasen_salas", $cn) or die (mysql_error());
-
+#    $cn = (mysql_connect("Localhost", "revasen_users", "==D6?+BxgIZ2")) or die (mysql_error());
+#    mysql_select_db("revasen_salas", $cn) or die (mysql_error());
+//Produccion
+    $cn = (mysql_connect("localhost", "root", "megamisama")) or die (mysql_error());
+    mysql_select_db("reserva", $cn) or die (mysql_error());
 
 
 //Fernandin
@@ -43,7 +45,8 @@ $cn = (mysql_connect ( "localhost", "fernandi_users", "DB5CUte_Bo!m" )) or die (
 
 //Datos de la empresa
 //*******************
-define("Domino","http://reservasentel.info/");//domino del sistema
+//define("Domino","http://reservasentel.info/");//domino del sistema
+define("Domino","http://localhost:8888/");//domino del sistema
 define("NombreAplicativo","Reservas de Salas :: entel");//Nombre del aplicativo
 define("Telefono","222-0397");//Telefono de la empresa
 	   
