@@ -39,11 +39,11 @@ while($fields=mysql_fetch_array($results0)){
     //echo "<br/>";
 
     //$sql = sprintf("SELECT idsala FROM salas_especiales WHERE idsala = %s", $idsala);
-    $sql1 = sprintf("SELECT * FROM notificaciones WHERE (diff_min BETWEEN %s AND %s) AND state = 0 AND notify <= %s ",
+    $sql1 = sprintf("SELECT * FROM notificaciones WHERE (diff_min BETWEEN %s AND %s) AND state = 0 AND notify <= %s AND notify = %d",
         $fields['lapse_in_min'] - 2,
         $fields['lapse_in_min'] + 2,
-        $max_notify
-    );
+        $max_notify,
+        $num_notify);
     //echo "<br/>";
     echo $sql1;
     echo "<br/>";
@@ -95,10 +95,11 @@ while($fields=mysql_fetch_array($results)){
     //echo "<br/>";
 
     //$sql = sprintf("SELECT idsala FROM salas_especiales WHERE idsala = %s", $idsala);
-    $sql = sprintf("SELECT * FROM notificaciones WHERE (diff_min BETWEEN %s AND %s) AND state = 0  AND notify <= %s ",
+    $sql = sprintf("SELECT * FROM notificaciones WHERE (diff_min BETWEEN %s AND %s) AND state = 0  AND notify <= %s AND notify = %d ",
         $fields['lapse_in_min'] + 2,
         $fields['lapse_in_min'] - 2,
-        $max_notify);
+        $max_notify,
+        $num_notify);
     echo $sql;
     echo "<br/>";
 
