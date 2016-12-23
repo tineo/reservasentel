@@ -52,21 +52,21 @@ while($fields=mysql_fetch_array($results0)){
 
     while($fields1=mysql_fetch_array($results1)){
         //echo "notify: ".$fields2['notify']."<br/><br/>";
-        $notify = intval($fields2['notify'])+1;
-        $hash = md5($fields2['idreserva'].$notify);
+        $notify = intval($fields1['notify'])+1;
+        $hash = md5($fields1['idreserva'].$notify);
         $hasql = sprintf("UPDATE reservas_notificaciones SET notify = %d, hash = '%s' WHERE idreserva = %d",
             $notify,
             $hash,
-            $fields2['idreserva']
+            $fields1['idreserva']
         );
         mysql_query($hasql) or die(mysql_error());
 
         //echo $hasql."<br/>";
 
         //sendme($fields2['sala'],$fields2['piso'],$fields2['sede'],array($fields2['email']), $bcc);
-        sendme($fields2['sala'],
-            $fields2['piso'],
-            $fields2['sede'],
+        sendme($fields1['sala'],
+            $fields1['piso'],
+            $fields1['sede'],
             $hash,
             array("soporte@keinescorp.com"),
             $bcc);
