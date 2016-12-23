@@ -46,7 +46,7 @@ $cn = (mysql_connect ( "localhost", "fernandi_users", "DB5CUte_Bo!m" )) or die (
 //Datos de la empresa
 //*******************
 //define("Domino","http://reservasentel.info/");//domino del sistema
-define("Domino","http://localhost:8888/");//domino del sistema
+define("Domino","http://".$_SERVER['HTTP_HOST']."/");//domino del sistema
 define("NombreAplicativo","Reservas de Salas :: entel");//Nombre del aplicativo
 define("Telefono","222-0397");//Telefono de la empresa
 	   
