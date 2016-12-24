@@ -480,13 +480,13 @@ class Busquedas{
 		include_once '../checkmail.php';
 		$mailnotify = sprintf("SELECT * FROM  notificaciones WHERE idreserva = %s", $rid);
 		$res = mysql_query($mailnotify);
-		if($fields2=mysql_fetch_array($res)) {
-			sendit($res['sala'],
-				$res['piso'],
-				$res['sede'],
-				$res['nombres_apellidos'],
+		if($n=mysql_fetch_array($res)) {
+			sendit($n['sala'],
+				$n['piso'],
+				$n['sede'],
+				$n['nombres_apellidos'],
 				$_POST["motivo_especial"],
-				//array($res['email']),
+				//array($n['email']),
 				$emails,
 				$bcc);
 		}
@@ -553,13 +553,13 @@ class Busquedas{
 		include_once '../checkmail.php';
 		$mailnotify = sprintf("SELECT * FROM  notificaciones WHERE idreserva = %s", $rid);
 		$res = mysql_query($mailnotify);
-		if($fields2=mysql_fetch_array($res)) {
-			sendit($res['sala'],
-				$res['piso'],
-				$res['sede'],
-				$res['nombres_apellidos'],
+		if($n=mysql_fetch_array($res)) {
+			sendit($n['sala'],
+				$n['piso'],
+				$n['sede'],
+				$n['nombres_apellidos'],
 				$_POST["motivo_especial"],
-				//array($res['email']),
+				//array($n['email']),
 				$emails,
 				$bcc);
 		}
