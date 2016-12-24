@@ -486,7 +486,8 @@ class Busquedas{
 				$res['sede'],
 				$res['nombres_apellidos'],
 				$_POST["motivo_especial"],
-				array($res['email']),
+				//array($res['email']),
+				$emails,
 				$bcc);
 		}
 		//END SEND CONFIRM
@@ -558,7 +559,8 @@ class Busquedas{
 				$res['sede'],
 				$res['nombres_apellidos'],
 				$_POST["motivo_especial"],
-				array($res['email']),
+				//array($res['email']),
+				$emails,
 				$bcc);
 		}
 		//END SEND CONFIRM
