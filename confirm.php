@@ -14,9 +14,9 @@ include_once 'config.php';
 if(isset($_REQUEST['cc'])){
     $sqlcc0 = sprintf("SELECT * FROM reservas_notificaciones WHERE hash = '%s'",$_REQUEST['cc']);
     $results = mysql_query($sqlcc0) or mysql_error();
-    echo $sqlcc0."<br/>";
+    //echo $sqlcc0."<br/>";
     $count = mysql_num_rows($results);
-    echo $count."<br/>";
+    //echo $count."<br/>";
 
     if($count>0) {
         //echo "cc";

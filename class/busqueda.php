@@ -456,6 +456,7 @@ class Busquedas{
 			//$er->Enviar("it","Prueba","Email de prueba de envio");
 
 
+
 		}
 
 		$procedure = sprintf("CALL proc_reservas_especiales (%s, %s, %s)",
@@ -466,6 +467,29 @@ class Busquedas{
 		$trigger = "INSERT INTO reservas_notificaciones (idreserva, hash, state, notify)
     					VALUES ($rid, MD5(CONCAT($rid,'1')), 0, 0)";
 		mysql_query($trigger);
+
+		//SEND CONFIRM
+		$bcc = array();
+		$bccsql = sprintf("SELECT * FROM config_notify_emails");
+		$resbcc = mysql_query($bccsql);
+		while($rbcc=mysql_fetch_array($resbcc)) {
+			$bcc[] = $rbcc['email'];
+		}
+
+		$emails = array('itsudatte01@gmail.com');
+		include_once '../checkmail.php';
+		$mailnotify = sprintf("SELECT * FROM  notificaciones WHERE idreserva = %s", $rid);
+		$res = mysql_query($mailnotify);
+		if($fields2=mysql_fetch_array($res)) {
+			sendit($res['sala'],
+				$res['piso'],
+				$res['sede'],
+				$res['nombres_apellidos'],
+				$_POST["motivo_especial"],
+				$emails,
+				$bcc);
+		}
+		//END SEND CONFIRM
 
 		echo '{"Validar": "' . 'OK' . '"}';
 	}
@@ -512,6 +536,33 @@ class Busquedas{
 		$trigger = "INSERT INTO reservas_notificaciones (idreserva, hash, state, notify)
     					VALUES ($rid, MD5(CONCAT($rid,'1')), 0, 0)";
 		mysql_query($trigger);
+
+
+
+
+
+		//SEND CONFIRM
+		$bcc = array();
+		$bccsql = sprintf("SELECT * FROM config_notify_emails");
+		$resbcc = mysql_query($bccsql);
+		while($rbcc=mysql_fetch_array($resbcc)) {
+			$bcc[] = $rbcc['email'];
+		}
+
+		$emails = array('itsudatte01@gmail.com');
+		include_once '../checkmail.php';
+		$mailnotify = sprintf("SELECT * FROM  notificaciones WHERE idreserva = %s", $rid);
+		$res = mysql_query($mailnotify);
+		if($fields2=mysql_fetch_array($res)) {
+			sendit($res['sala'],
+				$res['piso'],
+				$res['sede'],
+				$res['nombres_apellidos'],
+				$_POST["motivo_especial"],
+				$emails,
+				$bcc);
+		}
+		//END SEND CONFIRM
 
 		
 	}	
