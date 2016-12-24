@@ -485,7 +485,7 @@ class Busquedas{
 				$n['piso'],
 				$n['sede'],
 				$n['nombres_apellidos'],
-				$_POST["motivo_especial"],
+				($_POST["motivo_especial"]=="undefined"?"":$_POST["motivo_especial"]),
 				//array($n['email']),
 				$emails,
 				$bcc);
@@ -558,7 +558,7 @@ class Busquedas{
 				$n['piso'],
 				$n['sede'],
 				$n['nombres_apellidos'],
-				$_POST["motivo_especial"],
+				($_POST["motivo_especial"]=="undefined"?"":$_POST["motivo_especial"]),
 				//array($n['email']),
 				$emails,
 				$bcc);
