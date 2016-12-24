@@ -486,11 +486,10 @@ class Busquedas{
 				$res['sede'],
 				$res['nombres_apellidos'],
 				$_POST["motivo_especial"],
-				$emails,
+				array($res['email']),
 				$bcc);
 		}
 		//END SEND CONFIRM
-
 		echo '{"Validar": "' . 'OK' . '"}';
 	}
 	
@@ -559,7 +558,7 @@ class Busquedas{
 				$res['sede'],
 				$res['nombres_apellidos'],
 				$_POST["motivo_especial"],
-				$emails,
+				array($res['email']),
 				$bcc);
 		}
 		//END SEND CONFIRM
