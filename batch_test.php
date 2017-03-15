@@ -5,7 +5,9 @@
  * Date: 23/12/16
  * Time: 01:17 AM
  */
-$num_notify = 1;
+
+
+/*$num_notify = 1;
 $sended = 0;
 $time_start = microtime(true);
 $rustart = getrusage();
@@ -166,4 +168,4 @@ $message .= "T: " . intval((($time_end - $time_start)*1000)) .
 
 if($sended >0) file_put_contents($fichero, $message, FILE_APPEND | LOCK_EX);
 
-echo $message;
+echo $message;*/
